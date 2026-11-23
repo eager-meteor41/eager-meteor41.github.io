@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛入口爆料 - 官方视频门户 | 赛事爆料_创作者社区</title>
+<meta name="description" content="每日大赛入口爆料官方网站，深耕赛事爆料与原创视频内容生态，汇聚行业领先的创作者与真实一线信息，为用户提供高清、专业的赛事观察与社区互动平台。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1116'/%3E%3Cpath d='M20 44 L32 18 L44 44 Z' fill='none' stroke='%23ff4d4d' stroke-width='4' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='38' r='4' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --dmc-bg:#0f1116;
+  --dmc-bg-soft:#161922;
+  --dmc-panel:#1b1f2a;
+  --dmc-line:#2a2f3d;
+  --dmc-txt:#e8ebf2;
+  --dmc-txt-dim:#9aa3b5;
+  --dmc-red:#ff4d4d;
+  --dmc-red-deep:#c92c2c;
+  --dmc-fluor:#3ef0c0;
+  --dmc-yellow:#ffd166;
+  --dmc-radius:14px;
+  --dmc-shadow:0 12px 32px rgba(0,0,0,.45);
+  --dmc-navh:64px;
+  --dmc-annh:42px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--dmc-navh) + var(--dmc-annh) + 12px)}
+body{
+  background:var(--dmc-bg);
+  color:var(--dmc-txt);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+.dmc-wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.dmc-h2{font-size:clamp(22px,2.6vw,30px);letter-spacing:.5px;display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.dmc-h2::before{content:"";width:6px;height:26px;border-radius:3px;background:linear-gradient(180deg,var(--dmc-red),var(--dmc-yellow));flex:none}
+.dmc-h3{font-size:17px;margin-bottom:6px;letter-spacing:.3px}
+.dmc-sub{color:var(--dmc-txt-dim);font-size:14px;margin-bottom:26px}
+.dmc-section{padding:64px 0;border-bottom:1px solid var(--dmc-line)}
+.dmc-tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;border:1px solid var(--dmc-line);color:var(--dmc-txt-dim);margin-right:6px;margin-bottom:6px}
+.dmc-tag--hot{color:var(--dmc-yellow);border-color:rgba(255,209,102,.4)}
+.dmc-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;font-size:14px;font-weight:600;transition:.22s;border:1px solid transparent}
+.dmc-btn--primary{background:linear-gradient(120deg,var(--dmc-red),var(--dmc-red-deep));color:#fff;box-shadow:0 8px 22px rgba(255,77,77,.28)}
+.dmc-btn--primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,77,77,.4)}
+.dmc-btn--ghost{border-color:var(--dmc-line);color:var(--dmc-txt)}
+.dmc-btn--ghost:hover{border-color:var(--dmc-fluor);color:var(--dmc-fluor)}
+.dmc-btn--mini{padding:6px 14px;font-size:13px;border-radius:999px;border:1px solid var(--dmc-line);color:var(--dmc-txt-dim)}
+.dmc-btn--mini:hover{border-color:var(--dmc-red);color:var(--dmc-red)}
+.dmc-btn--mini.is-on{border-color:var(--dmc-red);color:var(--dmc-red);background:rgba(255,77,77,.1)}
+
+/* 公告条 + 页头 吸顶 */
+.dmc-sticky{position:sticky;top:0;z-index:60}
+.dmc-announce{background:linear-gradient(90deg,var(--dmc-red-deep),var(--dmc-red));color:#fff;height:var(--dmc-annh);display:flex;align-items:center;font-size:13px;overflow:hidden}
+.dmc-announce .dmc-wrap{display:flex;align-items:center;gap:12px;width:100%}
+.dmc-announce__badge{background:#fff;color:var(--dmc-red-deep);font-weight:700;font-size:11px;padding:1px 8px;border-radius:4px;flex:none;letter-spacing:1px}
+.dmc-announce__track{flex:1;overflow:hidden;white-space:nowrap;position:relative}
+.dmc-announce__track span{display:inline-block;padding-left:100%;animation:dmc-marquee 26s linear infinite}
+.dmc-announce__track span b{color:var(--dmc-yellow)}
+@keyframes dmc-marquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+.dmc-header{background:rgba(15,17,22,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--dmc-line);height:var(--dmc-navh);display:flex;align-items:center}
+.dmc-header .dmc-wrap{display:flex;align-items:center;gap:28px;width:100%}
+.dmc-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:1px;flex:none}
+.dmc-logo__mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--dmc-red),var(--dmc-yellow));display:grid;place-items:center;font-size:15px;color:#14161c;font-weight:900}
+.dmc-nav{display:flex;gap:4px;flex:1}
+.dmc-nav a{padding:8px 14px;border-radius:8px;font-size:14px;color:var(--dmc-txt-dim);transition:.2s}
+.dmc-nav a:hover{color:var(--dmc-txt);background:var(--dmc-panel)}
+.dmc-search{position:relative;flex:none}
+.dmc-search input{width:190px;background:var(--dmc-panel);border:1px solid var(--dmc-line);border-radius:999px;padding:8px 16px 8px 34px;color:var(--dmc-txt);font-size:13px;outline:none;transition:.25s}
+.dmc-search input:focus{width:220px;border-color:var(--dmc-fluor)}
+.dmc-search__icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--dmc-txt-dim);font-size:13px}
+.dmc-search__tip{position:absolute;top:44px;left:0;width:100%;min-width:230px;background:var(--dmc-panel);border:1px solid var(--dmc-line);border-radius:10px;padding:8px;font-size:13px;color:var(--dmc-txt-dim);display:none;box-shadow:var(--dmc-shadow)}
+.dmc-search__tip.is-open{display:block}
+.dmc-search__tip li{padding:6px 10px;border-radius:6px;cursor:pointer}
+.dmc-search__tip li:hover{background:var(--dmc-bg-soft);color:var(--dmc-txt)}
+.dmc-burger{display:none;font-size:22px;padding:6px 10px}
+
+/* 首屏：全幅主视觉背景 + 浮动文字 */
+.dmc-hero{position:relative;min-height:560px;display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid var(--dmc-line)}
+.dmc-hero__bg{position:absolute;inset:0;z-index:0}
+.dmc-hero__bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+.dmc-hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(15,17,22,.96) 22%,rgba(15,17,22,.72) 52%,rgba(15,17,22,.28) 100%)}
+.dmc-hero .dmc-wrap{position:relative;z-index:2;padding:70px 0 56px}
+.dmc-hero__eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:2px;color:var(--dmc-fluor);border:1px solid rgba(62,240,192,.35);padding:4px 14px;border-radius:999px;margin-bottom:20px}
+.dmc-hero h1{font-size:clamp(34px,5.4vw,62px);line-height:1.16;letter-spacing:2px;font-weight:900;max-width:760px;margin-bottom:18px;text-shadow:0 6px 30px rgba(0,0,0,.6)}
+.dmc-hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--dmc-red),var(--dmc-yellow));-webkit-background-clip:text;background-clip:text;color:transparent}
+.dmc-hero__lead{max-width:640px;font-size:15.5px;color:#c6ccd9;margin-bottom:26px}
+.dmc-hero__lead strong{color:var(--dmc-yellow);font-weight:600}
+.dmc-hero__actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.dmc-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:660px}
+.dmc-stats__item{background:rgba(27,31,42,.72);border:1px solid var(--dmc-line);border-radius:12px;padding:14px 18px;backdrop-filter:blur(6px)}
+.dmc-stats__num{font-size:26px;font-weight:800;color:var(--dmc-fluor);letter-spacing:1px}
+.dmc-stats__num small{font-size:13px;color:var(--dmc-txt-dim);font-weight:500;margin-left:2px}
+.dmc-stats__label{font-size:12.5px;color:var(--dmc-txt-dim)}
+
+/* 通用卡片 */
+.dmc-card{background:var(--dmc-panel);border:1px solid var(--dmc-line);border-radius:var(--dmc-radius);transition:.25s}
+.dmc-card:hover{transform:translateY(-4px);border-color:rgba(255,77,77,.4);box-shadow:var(--dmc-shadow)}
+.dmc-media{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:var(--dmc-radius) var(--dmc-radius) 0 0;background:var(--dmc-bg-soft)}
+.dmc-media img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.dmc-card:hover .dmc-media img{transform:scale(1.05)}
+.dmc-media__play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(15,17,22,.28);opacity:0;transition:.25s}
+.dmc-card:hover .dmc-media__play{opacity:1}
+.dmc-media__play span{width:52px;height:52px;border-radius:50%;background:rgba(255,77,77,.92);display:grid;place-items:center;color:#fff;font-size:18px;padding-left:3px}
+.dmc-media__dur{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.72);font-size:12px;padding:1px 8px;border-radius:4px;color:#dfe4ee}
+
+/* 焦点区 一幅重点大图 + 文字列表 */
+.dmc-focus{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:26px}
+.dmc-focus__main{overflow:hidden}
+.dmc-focus__main .dmc-media{aspect-ratio:16/9}
+.dmc-focus__body{padding:20px 22px 22px}
+.dmc-focus__body h3{font-size:22px;margin-bottom:8px}
+.dmc-focus__body p{font-size:14px;color:var(--dmc-txt-dim);margin-bottom:14px}
+.dmc-meta{display:flex;align-items:center;gap:14px;font-size:12.5px;color:var(--dmc-txt-dim);flex-wrap:wrap}
+.dmc-list{display:flex;flex-direction:column;gap:12px}
+.dmc-list__item{display:flex;gap:14px;padding:14px;align-items:flex-start}
+.dmc-list__idx{font-size:20px;font-weight:900;color:var(--dmc-red);width:30px;flex:none;line-height:1.2}
+.dmc-list__item h4{font-size:15px;margin-bottom:4px;line-height:1.45}
+.dmc-list__item p{font-size:13px;color:var(--dmc-txt-dim);margin-bottom:8px}
+.dmc-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.dmc-act{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--dmc-txt-dim);padding:4px 12px;border:1px solid var(--dmc-line);border-radius:999px;transition:.2s}
+.dmc-act:hover{border-color:var(--dmc-fluor);color:var(--dmc-fluor)}
+.dmc-act.is-like{border-color:var(--dmc-red);color:var(--dmc-red)}
+.dmc-act.is-fav{border-color:var(--dmc-yellow);color:var(--dmc-yellow)}
+
+/* 两列图文卡片 */
+.dmc-grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.dmc-grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.dmc-card__body{padding:18px 20px 20px}
+
+/* 专题 */
+.dmc-topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.dmc-topic{padding:22px;display:flex;flex-direction:column;gap:12px}
+.dmc-topic__status{font-size:12px;color:var(--dmc-fluor);border:1px solid rgba(62,240,192,.35);padding:2px 10px;border-radius:999px;align-self:flex-start}
+.dmc-topic ul li{font-size:13.5px;color:var(--dmc-txt-dim);padding:7px 0;border-bottom:1px dashed var(--dmc-line);display:flex;gap:8px}
+.dmc-topic ul li:last-child{border-bottom:none}
+.dmc-topic ul li::before{content:"▸";color:var(--dmc-red);flex:none}
+
+/* 作者 双列简介 */
+.dmc-authors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.dmc-author{display:flex;gap:16px;padding:20px}
+.dmc-avatar{width:58px;height:58px;border-radius:16px;flex:none;display:grid;place-items:center;font-weight:800;font-size:20px;color:#14161c}
+.dmc-author__info h4{font-size:16px;margin-bottom:2px}
+.dmc-author__field{font-size:12.5px;color:var(--dmc-fluor);margin-bottom:6px}
+.dmc-author__nums{font-size:12.5px;color:var(--dmc-txt-dim);display:flex;gap:14px;margin-bottom:8px}
+.dmc-author__desc{font-size:13px;color:var(--dmc-txt-dim)}
+
+/* 评论 双列短评 */
+.dmc-comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.dmc-comment{padding:18px 20px;background:var(--dmc-bg-soft);border:1px solid var(--dmc-line);border-radius:12px}
+.dmc-comment__head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.dmc-comment__ava{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;color:#14161c;flex:none}
+.dmc-comment__name{font-size:14px;font-weight:600}
+.dmc-comment__stars{font-size:12px;color:var(--dmc-yellow);margin-left:auto;letter-spacing:1px}
+.dmc-comment p{font-size:13.5px;color:var(--dmc-txt-dim)}
+
+/* 深度解析 文字块 */
+.dmc-deep{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.dmc-deep p{font-size:14.5px;color:#c3c9d6;margin-bottom:12px}
+.dmc-deep h3{color:var(--dmc-txt);margin:22px 0 10px;font-size:18px;display:flex;align-items:center;gap:10px}
+.dmc-deep h3::before{content:"";width:14px;height:14px;border-radius:4px;background:var(--dmc-red);flex:none;transform:rotate(45deg)}
+.dmc-deep blockquote{border-left:3px solid var(--dmc-red);padding:10px 18px;background:var(--dmc-bg-soft);border-radius:0 10px 10px 0;color:var(--dmc-yellow);font-size:14px;margin:18px 0}
+
+/* FAQ */
+.dmc-faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.dmc-faq details{background:var(--dmc-panel);border:1px solid var(--dmc-line);border-radius:12px;padding:16px 18px}
+.dmc-faq summary{cursor:pointer;font-size:14.5px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.dmc-faq summary::after{content:"+";color:var(--dmc-red);font-size:18px;line-height:1}
+.dmc-faq details[open] summary::after{content:"−"}
+.dmc-faq p{font-size:13.5px;color:var(--dmc-txt-dim);margin-top:10px}
+
+/* 企业动态 / 合作 */
+.dmc-timeline{display:grid;gap:0}
+.dmc-timeline__item{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px dashed var(--dmc-line)}
+.dmc-timeline__date{color:var(--dmc-fluor);font-size:13px;font-weight:600}
+.dmc-timeline__item h4{font-size:15px;margin-bottom:4px}
+.dmc-timeline__item p{font-size:13.5px;color:var(--dmc-txt-dim)}
+.dmc-partners{display:flex;flex-wrap:wrap;gap:14px}
+.dmc-partner{padding:14px 26px;border:1px solid var(--dmc-line);border-radius:10px;font-size:14px;color:var(--dmc-txt-dim);letter-spacing:1px;transition:.2s}
+.dmc-partner:hover{color:var(--dmc-fluor);border-color:rgba(62,240,192,.4)}
+
+/* 提交 / 联系 */
+.dmc-cta{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:26px;align-items:center;background:linear-gradient(120deg,rgba(255,77,77,.12),rgba(62,240,192,.08));border:1px solid var(--dmc-line);border-radius:18px;padding:36px}
+.dmc-cta h3{font-size:22px;margin-bottom:10px}
+.dmc-cta p{font-size:14px;color:var(--dmc-txt-dim);margin-bottom:18px}
+.dmc-cta__form{display:flex;gap:10px;flex-wrap:wrap}
+.dmc-cta__form input{flex:1;min-width:200px;background:var(--dmc-bg);border:1px solid var(--dmc-line);border-radius:999px;padding:11px 18px;color:var(--dmc-txt);font-size:14px;outline:none}
+.dmc-cta__form input:focus{border-color:var(--dmc-fluor)}
+
+/* Footer */
+.dmc-footer{background:var(--dmc-bg-soft);padding:54px 0 28px;font-size:13.5px;color:var(--dmc-txt-dim)}
+.dmc-footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px;margin-bottom:36px}
+.dmc-footer h5{color:var(--dmc-txt);font-size:14px;margin-bottom:12px}
+.dmc-footer li{padding:4px 0}
+.dmc-footer a:hover{color:var(--dmc-fluor)}
+.dmc-footer__brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:var(--dmc-txt);font-weight:800;font-size:16px}
+.dmc-footer__bottom{border-top:1px solid var(--dmc-line);padding-top:20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:12.5px}
+
+/* 回顶 */
+.dmc-top{position:fixed;right:24px;bottom:28px;width:46px;height:46px;border-radius:50%;background:var(--dmc-panel);border:1px solid var(--dmc-line);color:var(--dmc-fluor);display:grid;place-items:center;font-size:18px;z-index:70;opacity:0;pointer-events:none;transition:.25s}
+.dmc-top.is-show{opacity:1;pointer-events:auto}
+.dmc-top:hover{border-color:var(--dmc-fluor)}
+
+/* Toast */
+.dmc-toast{position:fixed;left:50%;bottom:36px;transform:translate(-50%,20px);background:var(--dmc-panel);border:1px solid var(--dmc-fluor);color:var(--dmc-fluor);padding:10px 22px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:.3s;z-index:99}
+.dmc-toast.is-show{opacity:1;transform:translate(-50%,0)}
+
+/* 弹窗 */
+.dmc-modal{position:fixed;inset:0;background:rgba(0,0,0,.66);display:none;place-items:center;z-index:120;padding:20px}
+.dmc-modal.is-open{display:grid}
+.dmc-modal__box{width:min(520px,100%);background:var(--dmc-panel);border:1px solid var(--dmc-line);border-radius:16px;padding:28px;position:relative}
+.dmc-modal__close{position:absolute;right:16px;top:14px;font-size:20px;color:var(--dmc-txt-dim)}
+.dmc-modal__close:hover{color:var(--dmc-red)}
+.dmc-modal h3{margin-bottom:10px;font-size:19px}
+.dmc-modal p{font-size:14px;color:var(--dmc-txt-dim);margin-bottom:16px}
+.dmc-modal input,.dmc-modal textarea{width:100%;background:var(--dmc-bg);border:1px solid var(--dmc-line);border-radius:10px;padding:10px 14px;color:var(--dmc-txt);font-size:14px;margin-bottom:12px;outline:none;font-family:inherit}
+.dmc-modal input:focus,.dmc-modal textarea:focus{border-color:var(--dmc-fluor)}
+
+@media (max-width:960px){
+  .dmc-focus{grid-template-columns:minmax(0,1fr)}
+  .dmc-grid2,.dmc-authors,.dmc-comments,.dmc-faq{grid-template-columns:minmax(0,1fr)}
+  .dmc-grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dmc-cta{grid-template-columns:minmax(0,1fr)}
+  .dmc-footer__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  .dmc-nav{display:none;position:absolute;top:calc(var(--dmc-navh) + var(--dmc-annh));left:0;right:0;flex-direction:column;background:var(--dmc-bg-soft);border-bottom:1px solid var(--dmc-line);padding:12px 20px;gap:2px}
+  .dmc-nav.is-open{display:flex}
+  .dmc-burger{display:block;margin-left:auto}
+  .dmc-search{display:none}
+  .dmc-grid3{grid-template-columns:minmax(0,1fr)}
+  .dmc-hero{min-height:480px}
+  .dmc-stats{grid-template-columns:minmax(0,1fr)}
+  .dmc-timeline__item{grid-template-columns:minmax(0,1fr);gap:6px}
+  .dmc-footer__grid{grid-template-columns:minmax(0,1fr)}
+  .dmc-section{padding:46px 0}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="dmc-sticky">
+  <div class="dmc-announce">
+    <div class="dmc-wrap">
+      <span class="dmc-announce__badge">官方发布</span>
+      <div class="dmc-announce__track">
+        <span>新增「每日大赛入口爆料」第 118 期首发观察 · 爆料线索核验通道今日开放 · 创作者挑战赛报名截止 12 月 06 日 · 高清正版赛事回放已上线 42 部 · <b>本期爆料线索采纳 16 条</b> · 社区投票功能同步更新</span>
+      </div>
+    </div>
+  </div>
+  <header class="dmc-header">
+    <div class="dmc-wrap">
+      <a class="dmc-logo" href="#dmc-hero"><span class="dmc-logo__mark">爆</span>每日大赛入口爆料</a>
+      <nav class="dmc-nav" id="dmcNav">
+        <a href="#dmc-focus">焦点内容</a>
+        <a href="#dmc-topics">专题企划</a>
+        <a href="#dmc-authors">创作者</a>
+        <a href="#dmc-deep">深度解析</a>
+        <a href="#dmc-comments">口碑评价</a>
+        <a href="#dmc-faq">帮助中心</a>
+      </nav>
+      <div class="dmc-search">
+        <span class="dmc-search__icon">🔍</span>
+        <input type="search" id="dmcSearchInput" placeholder="搜索爆料、赛事、创作者" aria-label="站内搜索">
+        <ul class="dmc-search__tip" id="dmcSearchTip"></ul>
+      </div>
+      <button class="dmc-burger" id="dmcBurger" aria-label="展开导航">☰</button>
+    </div>
+  </header>
+</div>
+
+<main>
+  <!-- S2 品牌首屏 -->
+  <section class="dmc-hero" id="dmc-hero">
+    <div class="dmc-hero__bg">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23151820'/%3E%3Cstop offset='1' stop-color='%232b1320'/%3E%3C/linearGradient%3E%3ClinearGradient id='g2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff4d4d' stop-opacity='.85'/%3E%3Cstop offset='1' stop-color='%23ffd166' stop-opacity='.6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='900' fill='url(%23g1)'/%3E%3Cg opacity='.16'%3E%3Ccircle cx='1180' cy='260' r='300' fill='%23ff4d4d'/%3E%3Ccircle cx='1380' cy='640' r='220' fill='%233ef0c0'/%3E%3Ccircle cx='980' cy='760' r='160' fill='%23ffd166'/%3E%3C/g%3E%3Cg stroke='%23ff4d4d' stroke-opacity='.5' stroke-width='3' fill='none'%3E%3Cpath d='M980 180 L1230 330 L1160 610 L860 520 Z'/%3E%3Cpath d='M1040 240 L1150 340 L1100 520 L920 460 Z' opacity='.5'/%3E%3C/g%3E%3Cg fill='%23ffd166'%3E%3Ccircle cx='1330' cy='180' r='7'/%3E%3Ccircle cx='1240' cy='760' r='5'/%3E%3Ccircle cx='1420' cy='460' r='9'/%3E%3Ccircle cx='900' cy='300' r='4'/%3E%3C/g%3E%3Crect x='760' y='380' width='560' height='4' fill='url(%23g2)'/%3E%3Crect x='760' y='500' width='380' height='3' fill='%233ef0c0' opacity='.7'/%3E%3Ctext x='1210' y='560' font-family='sans-serif' font-size='120' font-weight='900' fill='%23ffffff' opacity='.06'%3E118%3C/text%3E%3C/svg%3E" alt="每日大赛入口爆料主视觉：深色赛事爆料工作台与红色线索网络">
+    </div>
+    <div class="dmc-wrap">
+      <span class="dmc-hero__eyebrow">● 官方网站 · 官方发布通道</span>
+      <h1>每日大赛入口爆料</h1>
+      <p class="dmc-hero__lead">
+        作为国内持续运营的赛事爆料与原创视频内容平台，我们以<strong>真实、高清、专业</strong>的记录方式，汇集每日赛事第一手观察、创作者深度访谈与社区共创线索。这里是<strong>值得信赖</strong>的爆料入口，也是让每一次现场、每一位讲述者被看见的品牌社区。
+      </p>
+      <div class="dmc-hero__actions">
+        <a class="dmc-btn dmc-btn--primary" href="#dmc-focus">进入今日爆料 ▸</a>
+        <a class="dmc-btn dmc-btn--ghost" href="#dmc-topics">查看专题企划</a>
+        <button class="dmc-btn dmc-btn--ghost" data-dmc-modal="submit">提交爆料线索</button>
+      </div>
+      <div class="dmc-stats">
+        <div class="dmc-stats__item">
+          <div class="dmc-stats__num" data-dmc-count="1286">0</div>
+          <div class="dmc-stats__label">已核验爆料条目（条）</div>
+        </div>
+        <div class="dmc-stats__item">
+          <div class="dmc-stats__num" data-dmc-count="342">0</div>
+          <div class="dmc-stats__label">活跃创作者（位）</div>
+        </div>
+        <div class="dmc-stats__item">
+          <div class="dmc-stats__num" data-dmc-count="98">0<small>%</small></div>
+          <div class="dmc-stats__label">线索响应好评率</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 焦点内容：一幅重点大图 + 文字列表 -->
+  <section class="dmc-section" id="dmc-focus">
+    <div class="dmc-wrap">
+      <h2 class="dmc-h2">今日焦点爆料与热门视频</h2>
+      <p class="dmc-sub">每日大赛入口爆料精选 2 项重点观察内容 + 5 条视频条目，封面仅用于重点内容，其余以文字索引呈现。</p>
+
+      <div class="dmc-focus">
+        <article class="dmc-card dmc-focus__main">
+          <div class="dmc-media">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a1e29'/%3E%3Cstop offset='1' stop-color='%233a1a1f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23f1)'/%3E%3Cg stroke='%23ff4d4d' stroke-width='2' opacity='.75'%3E%3Cpath d='M80 360 L200 200 L340 300 L470 160 L650 260' fill='none'/%3E%3C/g%3E%3Cg fill='%23ff4d4d'%3E%3Ccircle cx='200' cy='200' r='9'/%3E%3Ccircle cx='470' cy='160' r='9'/%3E%3Ccircle cx='650' cy='260' r='9'/%3E%3C/g%3E%3Crect x='80' y='80' width='180' height='26' rx='13' fill='%233ef0c0' opacity='.85'/%3E%3Crect x='80' y='130' width='320' height='12' rx='6' fill='%23ffffff' opacity='.24'/%3E%3Crect x='80' y='160' width='240' height='12' rx='6' fill='%23ffffff' opacity='.16'/%3E%3Cg fill='%23ffd166' opacity='.9'%3E%3Crect x='560' y='340' width='160' height='10' rx='5'/%3E%3Crect x='560' y='362' width='100' height='10' rx='5'/%3E%3C/g%3E%3Ctext x='420' y='420' font-family='sans-serif' font-size='26' fill='%23ffffff' opacity='.18'%3EENTRY REPORT%3C/text%3E%3C/svg%3E" alt="每日大赛入口爆料焦点图：爆料线索链路与核验节点示意图">
+            <div class="dmc-media__play"><span>▶</span></div>
+            <div class="dmc-media__dur">12:48</div>
+          </div>
+          <div class="dmc-focus__body">
+            <h3>第 118 期爆料全链路复盘：一条线索如何从私信走到公开核验</h3>
+            <p>从匿名投稿、双人交叉核验到公开页面上线，本期完整记录每日大赛入口爆料的处理流程。片中首次展示核验工单、时间轴与三位一线爆料人的采访片段，说明“快”与“准”之间如何取舍。</p>
+            <div class="dmc-meta">
+              <span>作者：许砚舟</span><span>播放 12.6 万</span><span>点赞 8,412</span><span>收藏 3,207</span>
+            </div>
+            <div class="dmc-actions">
+              <button class="dmc-act" data-dmc-like>♡ 点赞 <b>8412</b></button>
+              <button class="dmc-act" data-dmc-fav>☆ 收藏</button>
+              <button class="dmc-act" data-dmc-copy>🔗 复制链接</button>
+              <button class="dmc-act" data-dmc-modal="report">反馈</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="dmc-list">
+          <article class="dmc-card dmc-list__item">
+            <div class="dmc-list__idx">01</div>
+            <div>
+              <h4>报名截止前 72 小时：创作者挑战赛赛道选择避坑指南</h4>
+              <p>拆解五个常见误判，给出赛道匹配自测清单。</p>
+              <span class="dmc-tag dmc-tag--hot">每日大赛入口爆料</span><span class="dmc-tag">攻略</span>
+              <div class="dmc-meta" style="margin-top:8px">林砚秋 · 播放 6.8 万 · 点赞 2,140</div>
+            </div>
+          </article>
+          <article class="dmc-card dmc-list__item">
+            <div class="dmc-list__idx">02</div>
+            <div>
+              <h4>爆料线索核验现场：三个被证伪的“现场消息”</h4>
+              <p>以案例说明为何核验比抢发更重要。</p>
+              <span class="dmc-tag">深度测评</span><span class="dmc-tag">行业观察</span>
+              <div class="dmc-meta" style="margin-top:8px">周砚白 · 播放 5.2 万 · 点赞 1,706</div>
+            </div>
+          </article>
+          <article class="dmc-card dmc-list__item">
+            <div class="dmc-list__idx">03</div>
+            <div>
+              <h4>一分钟看懂大赛入口更新日志：新增投票与线索公开页</h4>
+              <p>版本 4.2 的功能变化与使用建议。</p>
+              <span class="dmc-tag">教程干货</span><span class="dmc-tag">更新</span>
+              <div class="dmc-meta" style="margin-top:8px">沈知遥 · 播放 4.7 万 · 点赞 1,328</div>
+            </div>
+          </article>
+          <article class="dmc-card dmc-list__item">
+            <div class="dmc-list__idx">04</div>
+            <div>
+              <h4>在地观察：四座城市的爆料人周末行动记录</h4>
+              <p>城市探索与线索采集的结合样本。</p>
+              <span class="dmc-tag">城市探索</span><span class="dmc-tag">日常记录</span>
+              <div class="dmc-meta" style="margin-top:8px">叶以宁 · 播放 3.9 万 · 点赞 1,102</div>
+            </div>
+          </article>
+          <article class="dmc-card dmc-list__item">
+            <div class="dmc-list__idx">05</div>
+            <div>
+              <h4>创作者访谈：把“爆料”做成长期内容品牌的三年</h4>
+              <p>关于选题、伦理与持续运营的对谈。</p>
+              <span class="dmc-tag">人物访谈</span><span class="dmc-tag">品牌故事</span>
+              <div class="dmc-meta" style="margin-top:8px">顾南屿 · 播放 3.4 万 · 点赞 986</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M4 专题企划 -->
+  <section class="dmc-section" id="dmc-topics">
+    <div class="dmc-wrap">
+      <h2 class="dmc-h2">专题企划与内容生态</h2>
+      <p class="dmc-sub">每日大赛入口爆料围绕爆料、赛事、创作者三条主线持续运营专题，每个专题保持至少 3 条内容更新。</p>
+      <div class="dmc-topics">
+        <div class="dmc-card dmc-topic">
+          <span class="dmc-topic__status">更新中 · 第 9 期</span>
+          <h3 class="dmc-h3">爆料核验实验室</h3>
+          <p style="font-size:13.5px;color:var(--dmc-txt-dim)">把“听说”拆成可验证的证据链，面向普通用户的核验方法论专题。</p>
+          <ul>
+            <li>证据分级表：一张图判断线索可信度</li>
+            <li>三源交叉核验：从私信到公开页的路径</li>
+            <li>被证伪案例复盘：错在哪里</li>
+          </ul>
+        </div>
+        <div class="dmc-card dmc-topic">
+          <span class="dmc-topic__status">更新中 · 第 14 期</span>
+          <h3 class="dmc-h3">大赛入口观测站</h3>
+          <p style="font-size:13.5px;color:var(--dmc-txt-dim)">跟踪每日大赛入口的版本变化、报名节奏与社区热点，形成可回看的时间档案。</p>
+          <ul>
+            <li>本周入口开放时间与报名曲线</li>
+            <li>赛道热度变化与创作者选择</li>
+            <li>社区投票结果解读</li>
+          </ul>
+        </div>
+        <div class="dmc-card dmc-topic">
+          <span class="dmc-topic__status">筹备中 · 第 4 期</span>
+          <h3 class="dmc-h3">爆料人深夜档</h3>
+          <p style="font-size:13.5px;color:var(--dmc-txt-dim)">低光环境下的真实记录，呈现创作者陪伴感与人文温度。</p>
+          <ul>
+            <li>凌晨两点的线索电话</li>
+            <li>通勤路上的素材整理</li>
+            <li>一次失败直播的完整复盘</li>
+          </ul>
+        </div>
+        <div class="dmc-card dmc-topic">
+          <span class="dmc-topic__status">更新中 · 第 6 期</span>
+          <h3 class="dmc-h3">创意挑战赛</h3>
+          <p style="font-size:13.5px;color:var(--dmc-txt-dim)">以短影像提交创意方案，鼓励多元表达与新人参与。</p>
+          <ul>
+            <li>本期命题：一分钟讲清一个入口</li>
+            <li>投稿规则与评审维度公开</li>
+            <li>上期获奖作品解析</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M5 作者矩阵：双列简介 -->
+  <section class="dmc-section" id="dmc-authors">
+    <div class="dmc-wrap">
+      <h2 class="dmc-h2">创作者矩阵与作者名录</h2>
+      <p class="dmc-sub">官方签约与社区共创创作者共同构成每日大赛入口爆料的内容生态，以下是本季活跃的 6 位作者。</p>
+      <div class="dmc-authors">
+        <article class="dmc-card dmc-author">
+          <div class="dmc-avatar" style="background:linear-gradient(135deg,#ff4d4d,#ffd166)">许</div>
+          <div class="dmc-author__info">
+            <h4>许砚舟</h4>
+            <div class="dmc-author__field">爆料核验 · 现场观察</div>
+            <div class="dmc-author__nums"><span>作品 86</span><span>粉丝 12.4 万</span></div>
+            <p class="dmc-author__desc">长期跟踪赛事第一线信息，擅长把复杂线索拆成清晰证据链。坚持三源交叉核验，拒绝抢发式表达，作品以冷静叙事与完整时间轴见长。</p>
+          </div>
+        </article>
+        <article class="dmc-card dmc-author">
+          <div class="dmc-avatar" style="background:linear-gradient(135deg,#3ef0c0,#0f7f6d)">林</div>
+          <div class="dmc-author__info">
+            <h4>林砚秋</h4>
+            <div class="dmc-author__field">报名攻略 · 干货教程</div>
+            <div class="dmc-author__nums"><span>作品 64</span><span>粉丝 9.1 万</span></div>
+            <p class="dmc-author__desc">把赛事报名与赛道选择讲成普通人看得懂的步骤，擅长清单式教程与避坑指南。更新稳定，常年在评论区和新人创作者答疑互动。</p>
+          </div>
+        </article>
+        <article class="dmc-card dmc-author">
+          <div class="dmc-avatar" style="background:linear-gradient(135deg,#7c9dff,#31366b)">周</div>
+          <div class="dmc-author__info">
+            <h4>周砚白</h4>
+            <div class="dmc-author__field">深度测评 · 行业观察</div>
+            <div class="dmc-author__nums"><span>作品 52</span><span>粉丝 7.6 万</span></div>
+            <p class="dmc-author__desc">从行业视角审视爆料内容，擅长用数据与对照呈现结论。曾连续跟踪同一入口 40 天，形成一份被社区反复引用的观察样本。</p>
+          </div>
+        </article>
+        <article class="dmc-card dmc-author">
+          <div class="dmc-avatar" style="background:linear-gradient(135deg,#ffd166,#b87a0d)">沈</div>
+          <div class="dmc-author__info">
+            <h4>沈知遥</h4>
+            <div class="dmc-author__field">功能教程 · 更新解读</div>
+            <div class="dmc-author__nums"><span>作品 71</span><span>粉丝 8.8 万</span></div>
+            <p class="dmc-author__desc">专注产品更新与实用技巧，语速快、信息密度高。擅长把版本日志转成可执行的操作步骤，是新用户了解平台的常用入口。</p>
+          </div>
+        </article>
+        <article class="dmc-card dmc-author">
+          <div class="dmc-avatar" style="background:linear-gradient(135deg,#ff8fb1,#7a2b47)">叶</div>
+          <div class="dmc-author__info">
+            <h4>叶以宁</h4>
+            <div class="dmc-author__field">城市探索 · 日常记录</div>
+            <div class="dmc-author__nums"><span>作品 45</span><span>粉丝 6.2 万</span></div>
+            <p class="dmc-author__desc">用行走的方式记录城市里的爆料现场，镜头温和克制。作品多为长镜头与手写字幕，呈现一线记录者的耐心与真实温度。</p>
+          </div>
+        </article>
+        <article class="dmc-card dmc-author">
+          <div class="dmc-avatar" style="background:linear-gradient(135deg,#b8f2e6,#167a68)">顾</div>
+          <div class="dmc-author__info">
+            <h4>顾南屿</h4>
+            <div class="dmc-author__field">人物访谈 · 品牌故事</div>
+            <div class="dmc-author__nums"><span>作品 38</span><span>粉丝 5.4 万</span></div>
+            <p class="dmc-author__desc">访谈型创作者，提问直接且留白充分。关注创作者长期生存状态，常以三小时长谈剪出十分钟内容，被社区称为“慢采访派”。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- M15 深度解析 800+ 字 -->
+  <section class="dmc-section" id="dmc-deep">
+    <div class="dmc-wrap">
+      <h2 class="dmc-h2">每日大赛入口爆料：关键词深度解析</h2>
+      <p class="dmc-sub">从入口、爆料、每日三个词出发，说明这一品牌内容形态的逻辑、边界与长期价值。</p>
+      <div class="dmc-deep">
+        <p>“每日大赛入口爆料”看似是一个搜索词，实际上描述了一条完整的信息链路：有人在某个入口前等待，有人在现场记录，有人把线索整理成可读内容，最后有人在社区里讨论它。作为一家以视频为主要载体的内容品牌，我们把这条链路拆成三个部分来运营——入口是对象，爆料是方法，每日是节奏。三者缺一不可，任何一环失守，内容都会退化为无意义的噪声。这也是官方网站区别于普通聚合页面之处：我们不仅展示结果，也公开过程。</p>
+
+        <h3>入口：从“在哪里”到“怎么用”</h3>
+        <p>关于“每日大赛入口”的讨论，最初往往停留在“在哪里能找到”的层面。但持续运营的经验告诉我们，真正有价值的信息是“怎么用”：入口的开放时间是否有规律、不同设备上的呈现是否一致、报名资料在什么阶段容易被退回、常见提示语分别代表什么状态。我们在视频里把这些细节逐条演示，用屏幕录制配合手写字幕，让第一次接触的用户也能跟上。赛事的入口每天都会被反复检索，这意味着它天然具备高频属性；而高频检索背后，是大量未被满足的确定性需求。官方发布的内容需要做的，是把不确定性压缩到可接受的范围，而不是制造更多悬念。</p>
+        <p>为此，内容团队与运营团队共同维护一份入口更新日志，以“日期—变化—影响范围—建议动作”四列格式记录。每条变化都会对应至少一条短视频或一段图文说明。用户不需要看完所有内容，只需按自己的阶段找到对应条目。这种结构化的信息组织方式，也是“每日大赛入口爆料”能够被长期信任的基础：它不依赖情绪，而依赖可复查的记录。</p>
+
+        <h3>爆料：真实感与核验成本</h3>
+        <p>“爆料”两个字容易让人联想到抢首发，但在我们的内容标准里，爆料的第一原则是核验。任何一条线索进入公开页面之前，都要经过来源标注、交叉比对与风险提示三道工序。来源标注要求写清“谁、在什么时间、通过什么方式”获知；交叉比对要求至少两个相互独立的信源指向同一事实；风险提示则要求明确指出内容可能变化的概率与时间窗口。这套流程并不轻，有时会让内容比传言晚数小时上线，但它换来的是可追溯与可更正。</p>
+        <p>我们同样在视频里承认失败。社区喜欢看“翻车复盘”，因为那是最真实的行业观察。被证伪的线索会被保留在档案中，标注证伪原因：是信源单一、时间错位，还是截图被二次编辑。这种公开纠错机制看起来笨拙，却是品牌口碑的根基。用户至上的含义不是迎合，而是在关键处不隐瞒。我们也因此建立了爆料人保护规范：对匿名投稿者的身份信息做最小化处理，对涉及个人隐私的画面做遮挡，对未成年人相关线索一律不上架。</p>
+
+        <h3>每日：持续运营的节奏感</h3>
+        <p>每日更新听起来简单，做起来是一场耐力赛。我们采用“三班倒”的内容排期：早间发布入口状态速递，午间上线一条深度观察，晚间整理社区讨论与投票结果。稳定节奏带来的价值，是用户形成了预期——他们知道什么时候会有新内容，也知道什么内容值得等待。这种预期本身就是内容生态的一部分，它让陪伴感从抽象口号变成具体的时间点。</p>
+        <p>节奏也需要弹性。遇到重大变化时，我们会临时加更，但优先保证核验质量；遇到信息稀薄的日子，我们宁可做一条“今日无新线索，附三则旧档回看”，也不硬凑内容。这种“可预期但不注水”的运营方式，让每日大赛入口爆料在信息过载的环境里保有一种克制的品质感。数据上，我们的回访率与收藏率都高于同类内容，说明用户愿意为确定性买单。</p>
+
+        <h3>品牌：从信息到内容生态</h3>
+        <p>把三个词合在一起看，会发现它天然是一个社区命题：入口提供共同对象，爆料提供共同方法，每日提供共同节奏。围绕这三者，我们建立了创作者招募、创意挑战赛、社区投票与线索采纳公示等机制，让用户不只是观众，也能成为内容的参与者。行业领先不是自封的头衔，而是在一个个具体机制里被反复验证：线索是否被认真对待，纠错是否及时，创作者是否得到合理的曝光与回报。</p>
+        <p>未来一年，我们会把更多资源投向两条线：一是数据化的入口观测，用图表呈现变化趋势，让内容更可读；二是创作者的长期成长，通过联合企划与技能工作坊，帮助他们从“单条爆款”走向“稳定输出”。这也是我们对“品牌故事”的理解——不是讲一个漂亮的过去，而是持续交出可检验的现在。作为官方网站，我们愿意把过程放在阳光下，接受社区的监督与建议。</p>
+        <blockquote>真实不是姿态，而是流程；每日不是口号，而是排期。把两件事都做扎实，爆料才有力量。</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6 评论 + M10 企业动态 -->
+  <section class="dmc-section" id="dmc-comments">
+    <div class="dmc-wrap">
+      <h2 class="dmc-h2">社区口碑与用户评价</h2>
+      <p class="dmc-sub">来自创作者、报名者与长期关注者的 8 条真实反馈，语气与关注点各不相同。</p>
+      <div class="dmc-comments">
+        <div class="dmc-comment">
+          <div class="dmc-comment__head"><div class="dmc-comment__ava" style="background:#ffd166">陈</div><span class="dmc-comment__name">陈屿的日常</span><span class="dmc-comment__stars">★★★★★</span></div>
+          <p>追了三个月，最打动我的是他们敢放失败复盘。别的号都在喊“独家”，这里会告诉你哪条没核住，为什么撤下，这点很难得。</p>
+        </div>
+        <div class="dmc-comment">
+          <div class="dmc-comment__head"><div class="dmc-comment__ava" style="background:#3ef0c0">阿</div><span class="dmc-comment__name">阿岚在野</span><span class="dmc-comment__stars">★★★★★</span></div>
+          <p>新手看报名攻略那期，步骤写得非常细，连截图里的小提示都圈出来了。按着做一次就通过了，省了不少来回折腾。</p>
+        </div>
+        <div class="dmc-comment">
+          <div class="dmc-comment__head"><div class="dmc-comment__ava" style="background:#7c9dff">老</div><span class="dmc-comment__name">老周看现场</span><span class="dmc-comment__stars">★★★★☆</span></div>
+          <p>信息密度高，节奏也稳。唯一想提的是希望爆料时间轴能再直观一点，现在配图少，纯文字看着略累。</p>
+        </div>
+        <div class="dmc-comment">
+          <div class="dmc-comment__head"><div class="dmc-comment__ava" style="background:#ff8fb1">小</div><span class="dmc-comment__name">小满不止步</span><span class="dmc-comment__stars">★★★★★</span></div>
+          <p>评论区氛围很好，提的问题基本都有人回。我一条关于入口时间的提问，第二天就被做进了速递里，挺意外的。</p>
+        </div>
+        <div class="dmc-comment">
+          <div class="dmc-comment__head"><div class="dmc-comment__ava" style="background:#b8f2e6">河</div><span class="dmc-comment__name">河岸记录者</span><span class="dmc-comment__stars">★★★★☆</span></div>
+          <p>画面干净，没有夸张音效，适合晚上安静看。深度解析那几段写得比视频还耐读，已经收藏当参考资料了。</p>
+        </div>
+        <div class="dmc-comment">
+          <div class="dmc-comment__head"><div class="dmc-comment__ava" style="background:#ff4d4d">林</div><span class="dmc-comment__name">林间慢跑</span><span class="dmc-comment__stars">★★★★★</span></div>
+          <p>投稿过一次线索，反馈很快，还告诉我哪部分信息不足。虽然没被公开，但流程清楚，愿意再投。</p>
+        </div>
+        <div class="dmc-comment">
+          <div class="dmc-comment__head"><div class="dmc-comment__ava" style="background:#c9a2ff">四</div><span class="dmc-comment__name">四月剪辑室</span><span class="dmc-comment__stars">★★★★☆</span></div>
+          <p>作为剪辑同行，能看出他们在素材整理上花了不少功夫。希望以后多出一点幕后，讲讲怎么在有限时间做完核验。</p>
+        </div>
+        <div class="dmc-comment">
+          <div class="dmc-comment__head"><div class="dmc-comment__ava" style="background:#9ad4ff">平</div><span class="dmc-comment__name">平川笑笑生</span><span class="dmc-comment__stars">★★★★★</span></div>
+          <p>投票功能上线后参与感强了很多，能看到大家怎么选，也能看到结果解读。社区感是真实的，不是刷出来的。</p>
+        </div>
+      </div>
+
+      <h2 class="dmc-h2" style="margin-top:64px">企业动态与官方更新</h2>
+      <p class="dmc-sub">每日大赛入口爆料的品牌资讯、内容更新与社区活动公告。</p>
+      <div class="dmc-timeline">
+        <div class="dmc-timeline__item">
+          <div class="dmc-timeline__date">2026-11-22</div>
+          <div><h4>第 118 期爆料全链路复盘上线</h4><p>新增核验工单展示与三位爆料人访谈片段，官方发布页同步更新操作说明。</p></div>
+        </div>
+        <div class="dmc-timeline__item">
+          <div class="dmc-timeline__date">2026-11-18</div>
+          <div><h4>创作者挑战赛报名通道延长至 12 月 06 日</h4><p>应社区建议，报名与作品上传时间同步顺延一周，评审规则不变。</p></div>
+        </div>
+        <div class="dmc-timeline__item">
+          <div class="dmc-timeline__date">2026-11-12</div>
+          <div><h4>入口观测数据看板 4.2 版发布</h4><p>新增赛道热度曲线与投票结果对比，支持按周回看历史变化。</p></div>
+        </div>
+        <div class="dmc-timeline__item">
+          <div class="dmc-timeline__date">2026-11-05</div>
+          <div><h4>爆料人保护规范 2.0 公开征求意见</h4><p>对匿名投稿、画面遮挡与未成年人线索处理条款进行细化，欢迎社区反馈。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S7 辅助区：投稿 CTA + 合作 + FAQ -->
+  <section class="dmc-section" id="dmc-faq">
+    <div class="dmc-wrap">
+      <div class="dmc-cta">
+        <div>
+          <h3>有线索？把它交给每日大赛入口爆料的核验团队</h3>
+          <p>支持匿名提交，24 小时内给出受理反馈。请尽量写清时间、地点与可验证细节，便于我们交叉核对。</p>
+          <div class="dmc-cta__form">
+            <input type="text" id="dmcLeadInput" placeholder="一句话描述你的线索">
+            <button class="dmc-btn dmc-btn--primary" data-dmc-modal="submit">提交线索</button>
+          </div>
+        </div>
+        <div>
+          <h3 class="dmc-h3" style="margin-bottom:14px">合作与共创伙伴</h3>
+          <div class="dmc-partners">
+            <span class="dmc-partner">光栅影像</span>
+            <span class="dmc-partner">北岸数据</span>
+            <span class="dmc-partner">场景实验室</span>
+            <span class="dmc-partner">长野工作室</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="dmc-h2" style="margin-top:64px">帮助中心</h2>
+      <p class="dmc-sub">关于爆料流程、报名与内容使用的常见问题。</p>
+      <div class="dmc-faq">
+        <details open><summary>爆料线索提交后多久会得到回复？</summary><p>通常在 24 小时内给出受理反馈。若线索涉及需要多方核验的复杂信息，会先告知已受理，再在 48～72 小时内补充核验结论。</p></details>
+        <details><summary>匿名提交会保护我的身份吗？</summary><p>会。我们对投稿者身份信息做最小化处理，仅在必要范围内由核验人员知悉；公开内容中不会出现可识别身份的信息。</p></details>
+        <details><summary>为什么有些爆料没有公开？</summary><p>主要原因包括信源单一、关键细节无法交叉验证、涉及个人隐私或未成年人保护，以及内容可能引发不必要风险。</p></details>
+        <details><summary>创作者挑战赛的评审维度有哪些？</summary><p>主要看信息完整度、核验意识、表达清晰度与创意呈现四个方面，其中核验意识权重最高，鼓励真实而非猎奇。</p></details>
+        <details><summary>可以转载每日大赛入口爆料的内容吗？</summary><p>欢迎规范转载，请保留出处与作者信息，不得删改关键结论。商业使用需通过官方渠道取得授权。</p></details>
+        <details><summary>入口观测数据多久更新一次？</summary><p>工作日每日更新一次，遇重大变化会临时加更。历史数据保留在观测看板中，支持按周回看。</p></details>
+        <details><summary>如何联系内容团队？</summary><p>可通过页面右下角的反馈入口提交，或在投稿弹窗中留下联系方式，我们会在工作时间内回复。</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="dmc-footer">
+  <div class="dmc-wrap">
+    <div class="dmc-footer__grid">
+      <div>
+        <div class="dmc-footer__brand"><span class="dmc-logo__mark">爆</span>每日大赛入口爆料</div>
+        <p>每日大赛入口爆料官方网站 | 专注赛事爆料与原创视频内容生态，以真实、高清、专业的记录方式服务社区，持续运营，值得信赖。</p>
+        <p style="margin-top:10px">官方发布 · 精品内容 · 用户至上</p>
+      </div>
+      <div>
+        <h5>内容导航</h5>
+        <ul>
+          <li><a href="#dmc-focus">今日焦点</a></li>
+          <li><a href="#dmc-topics">专题企划</a></li>
+          <li><a href="#dmc-authors">创作者矩阵</a></li>
+          <li><a href="#dmc-deep">深度解析</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>参与社区</h5>
+        <ul>
+          <li><a href="#dmc-faq">提交爆料线索</a></li>
+          <li><a href="#dmc-topics">报名创意挑战赛</a></li>
+          <li><a href="#dmc-comments">社区投票</a></li>
+          <li><a href="#dmc-faq">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>关于品牌</h5>
+        <ul>
+          <li>品牌故事与理念</li>
+          <li>企业动态</li>
+          <li>合作与共创</li>
+          <li>社会责任与规范</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dmc-footer__bottom">
+      <span>© 2026 每日大赛入口爆料 · 官方网站 · 版权所有 · 持续运营中</span>
+      <span>内容备案号：DMC-2026-118 · 社区规范 | 隐私说明 | 举报反馈</span>
+    </div>
+  </div>
+</footer>
+
+<button class="dmc-top" id="dmcTop" aria-label="回到顶部">↑</button>
+<div class="dmc-toast" id="dmcToast"></div>
+
+<div class="dmc-modal" id="dmcModalSubmit">
+  <div class="dmc-modal__box">
+    <button class="dmc-modal__close" data-dmc-close>×</button>
+    <h3>提交爆料线索</h3>
+    <p>请写清时间、地点与可验证细节。支持匿名提交，我们会在 24 小时内反馈受理情况。</p>
+    <input type="text" id="dmcModalName" placeholder="称呼（可留空）">
+    <textarea id="dmcModalText" rows="4" placeholder="线索描述，例如：11 月 20 日 14:00 入口出现短暂维护提示……"></textarea>
+    <button class="dmc-btn dmc-btn--primary" id="dmcModalSubmitBtn">确认提交</button>
+  </div>
+</div>
+
+<div class="dmc-modal" id="dmcModalReport">
+  <div class="dmc-modal__box">
+    <button class="dmc-modal__close" data-dmc-close>×</button>
+    <h3>反馈与举报</h3>
+    <p>如发现内容失实、隐私泄露或不当信息，请告知我们，核验团队会尽快处理。</p>
+    <textarea id="dmcReportText" rows="4" placeholder="请描述问题所在，例如：某条线索的时间与实际不符……"></textarea>
+    <button class="dmc-btn dmc-btn--primary" id="dmcReportBtn">提交反馈</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var toast=document.getElementById('dmcToast');
+  var toastTimer=null;
+  function showToast(msg){
+    toast.textContent=msg;
+    toast.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){toast.classList.remove('is-show');},2200);
+  }
+
+  /* 移动端导航 */
+  var burger=document.getElementById('dmcBurger');
+  var nav=document.getElementById('dmcNav');
+  burger.addEventListener('click',function(){
+    nav.classList.toggle('is-open');
+    burger.textContent=nav.classList.contains('is-open')?'✕':'☰';
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      nav.classList.remove('is-open');
+      burger.textContent='☰';
+    });
+  });
+
+  /* 搜索提示 */
+  var searchInput=document.getElementById('dmcSearchInput');
+  var searchTip=document.getElementById('dmcSearchTip');
+  var pool=['第 118 期爆料复盘','大赛入口报名攻略','创作者挑战赛报名','线索核验流程','入口观测数据看板','许砚舟的核验手记','社区投票规则','爆料人保护规范'];
+  function renderTip(kw){
+    var list=pool.filter(function(x){return !kw||x.indexOf(kw)>-1;});
+    if(!list.length){list=['未找到相关条目，试试“核验”“报名”'];}
+    searchTip.innerHTML=list.map(function(x){return '<li>'+x+'</li>';}).join('');
+    searchTip.classList.add('is-open');
+    searchTip.querySelectorAll('li').forEach(function(li){
+      li.addEventListener('click',function(){
+        searchInput.value=li.textContent;
+        searchTip.classList.remove('is-open');
+        showToast('已筛选：'+li.textContent);
+      });
+    });
+  }
+  searchInput.addEventListener('input',function(){renderTip(searchInput.value.trim());});
+  searchInput.addEventListener('focus',function(){renderTip(searchInput.value.trim());});
+  document.addEventListener('click',function(e){
+    if(!searchTip.contains(e.target)&&e.target!==searchInput){searchTip.classList.remove('is-open');}
+  });
+  searchInput.addEventListener('keydown',function(e){
+    if(e.key==='Enter'){showToast('正在为你筛选：'+(searchInput.value.trim()||'全部内容'));}
+  });
+
+  /* 点赞 / 收藏 */
+  document.querySelectorAll('[data-dmc-like]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var b=btn.querySelector('b');
+      var num=parseInt(b.textContent.replace(/,/g,''),10)||0;
+      var on=btn.classList.toggle('is-like');
+      b.textContent=on?num+1:num-1;
+      btn.firstChild.textContent=on?'♥ 已赞 ':'♡ 点赞 ';
+      showToast(on?'感谢点赞':'已取消点赞');
+    });
+  });
+  document.querySelectorAll('[data-dmc-fav]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var on=btn.classList.toggle('is-fav');
+      btn.textContent=on?'★ 已收藏':'☆ 收藏';
+      showToast(on?'已加入收藏':'已取消收藏');
+    });
+  });
+
+  /* 复制链接 */
+  document.querySelectorAll('[data-dmc-copy]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var text='每日大赛入口爆料 · 第 118 期爆料全链路复盘';
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){showToast('链接已复制');}).catch(function(){showToast('已复制标题，请手动粘贴');});
+      }else{
+        showToast('已复制标题：'+text);
+      }
+    });
+  });
+
+  /* 弹窗 */
+  document.querySelectorAll('[data-dmc-modal]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-dmc-modal');
+      var box=document.getElementById(id==='report'?'dmcModalReport':'dmcModalSubmit');
+      if(box){box.classList.add('is-open');}
+    });
+  });
+  document.querySelectorAll('[data-dmc-close]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.closest('.dmc-modal').classList.remove('is-open');
+    });
+  });
+  document.querySelectorAll('.dmc-modal').forEach(function(m){
+    m.addEventListener('click',function(e){
+      if(e.target===m){m.classList.remove('is-open');}
+    });
+  });
+  document.getElementById('dmcModalSubmitBtn').addEventListener('click',function(){
+    var text=document.getElementById('dmcModalText').value.trim();
+    if(!text){showToast('请先填写线索描述');return;}
+    document.getElementById('dmcModalText').value='';
+    document.getElementById('dmcModalName').value='';
+    document.getElementById('dmcModalSubmit').classList.remove('is-open');
+    showToast('线索已提交，核验团队将尽快联系');
+  });
+  document.getElementById('dmcReportBtn').addEventListener('click',function(){
+    var text=document.getElementById('dmcReportText').value.trim();
+    if(!text){showToast('请先填写反馈内容');return;}
+    document.getElementById('dmcReportText').value='';
+    document.getElementById('dmcModalReport').classList.remove('is-open');
+    showToast('反馈已收到，感谢你的监督');
+  });
+
+  /* 回到顶部 */
+  var topBtn=document.getElementById('dmcTop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>600){topBtn.classList.add('is-show');}else{topBtn.classList.remove('is-show');}
+  });
+  topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* 数字滚动 */
+  var counters=document.querySelectorAll('[data-dmc-count]');
+  var done=false;
+  function runCounters(){
+    if(done)return;
+    var hero=document.getElementById('dmc-hero');
+    if(!hero)return;
+    var rect=hero.getBoundingClientRect();
+    if(rect.top<window.innerHeight && rect.bottom>0){
+      done=true;
+      counters.forEach(function(el){
+        var target=parseInt(el.getAttribute('data-dmc-count'),10)||0;
+        var suffix=el.querySelector('small')?el.querySelector('small').outerHTML:'';
+        var cur=0;
+        var step=Math.max(1,Math.round(target/60));
+        var t=setInterval(function(){
+          cur+=step;
+          if(cur>=target){cur=target;clearInterval(t);}
+          el.innerHTML=cur.toLocaleString('en-US')+suffix;
+        },24);
+      });
+    }
+  }
+  window.addEventListener('scroll',runCounters);
+  window.addEventListener('load',runCounters);
+  runCounters();
+})();
+</script>
+</body>
+</html>
